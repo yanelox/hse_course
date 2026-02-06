@@ -63,8 +63,6 @@ main:
     ; --------------------------------------------------
     mov al, 0x81        ; 1000 0001
     rol al, 1           ; -> 0000 0011
-                        ; CF = 1, OF = MSB^CF = 0
-                        ; ZF/SF не меняются
     save_eflags
     print_eflags
     call io_newline
@@ -73,27 +71,24 @@ main:
     ; --------------------------------------------------
     mov al, 0x81        ; 1000 0001
     ror al, 1           ; -> 1100 0000
-                        ; CF = 1, OF = MSB^bit6 = 0
     save_eflags
     print_eflags
     call io_newline
     ; --------------------------------------------------
     ; 6) RCL — вращение через CF влево
     ; --------------------------------------------------
-    stc                 ; CF = 1
+    stc                 ; 
     mov al, 0x80        ; 1000 0000
     rcl al, 1           ; -> 0000 0001
-                        ; CF = 1, OF = MSB^CF = 1
     save_eflags
     print_eflags
     call io_newline
     ; --------------------------------------------------
     ; 7) RCR — вращение через CF вправо
     ; --------------------------------------------------
-    clc                 ; CF = 0
+    clc                 ;
     mov al, 0x01        ; 0000 0001
     rcr al, 1           ; -> 0000 0000
-                        ; CF = 1, OF = MSB^bit6 = 0
     save_eflags
     print_eflags
     call io_newline
@@ -102,7 +97,6 @@ main:
     ; --------------------------------------------------
     mov al, 0x80        ; 1000 0000
     test al, al         ; результат не записывается
-                        ; ZF = 0, SF = 1, CF = 0, OF = 0
     save_eflags
     print_eflags
     call io_newline
