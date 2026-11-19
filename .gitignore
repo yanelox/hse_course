@@ -2,6 +2,9 @@
 
 # Presentations
 *.pptx
+/pdf/
+/node_modules/
+/.cache/marp/
 
 # Prerequisites
 *.d

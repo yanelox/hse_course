@@ -1,0 +1,14 @@
+{
+  "name": "hse-course-slides",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/marp.cjs --pdf --input-dir slides --output pdf",
+    "preview": "node scripts/marp.cjs --server --watch slides"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  }
+}
