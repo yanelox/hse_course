@@ -3,8 +3,10 @@
 @import 'default';
 
 section {
+    --ink: #000;
+    --accent: #0000ff;
     background: #fff;
-    color: #000;
+    color: var(--ink);
     font-family: Arial, Arimo, sans-serif;
     font-size: 30px;
     line-height: 1.3;
@@ -14,8 +16,11 @@ section {
     padding: 74px 56px 54px;
 }
 
+section h1, section h2, section h3, section h4, section h5, section h6 {
+    color: inherit;
+}
+
 section h1 {
-    color: #000;
     font-size: 48px;
     font-weight: 400;
     margin: 0 0 35px;
@@ -32,6 +37,7 @@ section li + li { margin-top: 14px; }
 
 section code {
     background: transparent;
+    color: inherit;
     font-family: 'Courier New', Cousine, monospace;
     padding: 0;
 }
@@ -39,6 +45,7 @@ section code {
 section pre {
     background: transparent;
     border: 0;
+    color: var(--ink);
     font-size: 30px;
     line-height: 1.25;
     margin: 0 0 16px;
@@ -46,7 +53,25 @@ section pre {
 }
 
 section pre code { display: block; padding: 0; }
-section em { color: #00f; font-style: normal; }
+/* Override the default syntax palette; blue is reserved for deliberate emphasis. */
+section pre code span { color: inherit; }
+section em { color: var(--accent); font-style: normal; }
 section a { color: #008b99; }
-section footer { left: 110px; right: 56px; text-align: right; font-size: 18px; }
-section::after { left: 56px; right: auto; color: #666; font-size: 16px; }
+section table tr, section table tr:nth-child(even) { background: #fff; }
+section table th, section table td { border: 1px solid #aaa; text-align: left; }
+section.matrix-steps table {
+    display: table;
+    width: 100%;
+    height: 365px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 30px;
+}
+section.matrix-steps table th, section.matrix-steps table td {
+    padding: 8px 18px;
+    vertical-align: middle;
+}
+section.matrix-steps table th:nth-child(1) { width: 26%; }
+section.matrix-steps table th:nth-child(2) { width: 27%; }
+section footer { left: 110px; right: 56px; text-align: right; color: inherit; font-size: 18px; }
+section::after { left: 56px; right: auto; color: var(--ink); font-size: 16px; }

@@ -3,8 +3,10 @@
 # Presentations
 *.pptx
 /pdf/
+*.pdfpc~
 /node_modules/
 /.cache/marp/
+/build/
 
 # Prerequisites
 *.d
